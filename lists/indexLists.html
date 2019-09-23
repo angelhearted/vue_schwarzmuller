@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Vue project</title>
+  <script src="./../vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <template v-if="show">
+      <p>you see mee?</p>
+      <p>you see mee?</p>
+    </template>
+    <p v-else>me too?</p>
+    <p v-show="show">I may be hidden</p>
+    <button @click="show = !show">switch toggle</button>
+
+    <hr>
+    <ul>
+      <li v-for="(ing, i) in ingredients" :key="ing">{{ ing }} ({{ i }})</li>
+    </ul>
+    <button @click="ingredients.push('spice')">Add spices</button>
+    <template v-for="(ing, i) in ingredients">
+      <h1>{{ ing }}</h1>
+      <p>{{ i }}</p>
+    </template>
+
+    <hr>
+    <ul>
+      <li v-for="human in people">
+        <span v-for="(v, k, i) in human">{{ v }}, {{ k }} ({{ i }}) -- </span>
+      </li>
+    </ul>
+
+
+    <span v-for="n in 10">{{ n }}</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
